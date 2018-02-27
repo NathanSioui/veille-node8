@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<%- include('partials/head.ejs') %>
+
+<% let acceuil = false %>
+<% let rechercher = false %>
+<% let prof = false %>
+<%if (typeof acc !== 'undefined' && acc==true){acceuil = true}%>
+<%if (typeof recherche !== 'undefined' && recherche==true){rechercher = true}%>
+<%if (typeof profil !== 'undefined' && profil==true){prof = true}%>
+
+<body>
+
+	<%- include('partials/menu.ejs') %>
+	<%- include('partials/header.ejs') %>
+	
+	<section id="principal">
+
+		<% if(prof == true){ %>
+			<%- include('partials/profil.ejs') %>
+			<%- include('partials/retour.ejs') %>
+		<%}else{%>
+			<% if(acceuil == true){ %>
+
+
+				<%- include('partials/acceuil.ejs') %>
+
+			<%}else{%>
+
+				<div class="principaleForm">
+
+					<div class="contenuFormulaire">
+				 		<%- include('partials/formulaire.ejs') %>
+				 	</div>
+
+					<div class="contenu">
+						<%- include('partials/peupler.ejs') %>
+						<%- include('partials/tableau.ejs') %>
+						<% if(rechercher == true){ %>
+
+							<%- include('partials/retour.ejs') %>
+
+						<%}%>
+					</div>
+
+				</div>
+				
+			 	<%- include('partials/formulaire_hidden.ejs') %>
+
+			 	<%- include('partials/script.ejs') %>
+
+		 	<%}%>
+		 <%}%>
+ 	</section>
+
+	<%- include('partials/footer.ejs') %>
+</body>
+</html>

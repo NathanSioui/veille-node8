@@ -1,0 +1,66 @@
+ <table class="tableau">
+
+ <%let noLigne = 0%>
+ <%let ordre%>
+ <%let noI = 0%>
+ <%let noms = ["id","Prenom","Nom","Telephone","Email"]%>
+ <%if (typeof ordre_html === 'undefined' || !ordre_html){
+
+ 		ordre_html = "asc";
+
+   }%>
+
+  <%if (typeof cle_html === 'undefined' || !cle_html){
+
+	cle_html = "prenom";
+
+ }%>
+
+ <%for(element of ex_6){%>
+
+ <%if(noLigne==0){%>
+
+	 <tr>
+	<%noLigne++%>
+	<%for(p in element){%>
+
+			
+
+	 			<th><a href=http://127.0.0.1:8081/trier/<%if (cle_html == p){if(ordre_html=="desc"){ordre_html = "asc"}else{ordre_html = "desc"}}%><%=p%>/<%=ordre_html%>><%=p%></a></th>
+				
+			
+			<%noI++%>
+	<%}%>
+		<th colspan="2"><a href=http://127.0.0.1:8081/ajouter><i class='fas fa-plus-circle'></i></a></th>
+	</tr>
+ <%}%>
+
+
+ <tr>
+ 	<%let i = 0%>
+ 	<% for (p in element){%>
+ 	
+
+ <td <%if(i!=0){%>contenteditable='true'<%}%> name=<%=noms[i]%>><%=element[p]%></td>
+
+
+
+ <%i++%>
+<%}%>
+
+<td>
+	<a href=http://127.0.0.1:8081/suprimer/<%=element._id%> ><i class="fa fa-times-circle"></i></a>
+</td>
+
+<td>
+	<a href=# class=sauver><i class="fa fa-save"></i></a>
+</td>
+
+<td>
+	<a href=http://127.0.0.1:8081/profil/<%=element._id%>><i class="fa fa-user"></i></a>
+</td>
+
+ </tr>
+ 
+ <%}%>
+ </table>
