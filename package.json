@@ -10,9 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
     "ejs": "^2.5.7",
     "epress": "0.0.1-security",
     "express": "^4.16.2",
+    "i18n": "^0.8.3",
     "mongodb": "^3.0.2"
   }
 }

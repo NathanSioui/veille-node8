@@ -4,12 +4,41 @@ const bodyParser= require('body-parser')
 const MongoClient = require('mongodb').MongoClient // le pilote MongoDB
 const ObjectID = require('mongodb').ObjectID;
 const peupler = require("./mes_modules/peupler");
+const i18n = require("i18n");
+
+
+i18n.configure({ 
+   locales : ['fr', 'en'],
+   cookie : 'langueChoisie', 
+   directory : __dirname + '/locales' })
+
+   app.use(i18n.init);
 
 app.set('view engine', 'ejs'); // générateur de template 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static('public'));
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
+
 
 app.set('view engine', 'ejs');
+
+
+////////////////////////////////////////////////////////////////////////////// I18N
+
+
+app.get('/:locale(en|fr)',  (req, res) => {
+  // on récupère le paramètre de l'url pour enregistrer la langue
+ 
+  res.cookie('langueChoisie',req.params.locale); 
+ res.setLocale(req.params.locale)
+  
+
+ res.redirect("/liste");
+
+})
+
+/////////////////////////////////////////////////////////////////////////////
 
 app.get('/',function(req, res){
 
@@ -25,6 +54,11 @@ var cursor = db.collection('adresses').find().toArray(function(err, resultat){
  // transfert du contenu vers la vue index.ejs (renders)
  // affiche le contenu de la BD
  res.render('gabarit.ejs', {ex_6: resultat})
+  console.log('Cookies: ', req.cookies.langueChoisie);
+   console.log('Cookies: ', req.cookies)
+   res.setLocale(req.cookies.langueChoisie);
+ //console.log('Signed Cookies: ', req.cookies.langueChoisie)
+ console.log(res.__("telephone"));
 })
 })
 
