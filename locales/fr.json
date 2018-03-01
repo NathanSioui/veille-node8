@@ -6,6 +6,11 @@
 	"nom": "Nom",
 	"telephone": "Telephone",
 	"email": "Courriel",
-	"_id": "_id"
+	"_id": "_id",
+	"rechercher":"Rechercher",
+	"membres":"Membres",
+	"ajouter":"Ajouter",
+	"Inscrivez-vous!":"Inscrivez-vous!",
+	"Créé par" : "Créé par"
 
 }

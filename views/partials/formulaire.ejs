@@ -1,9 +1,9 @@
 
 <form id="formAjouter" action = "http://127.0.0.1:8081/ajouter" method = "get">
-<h1>Inscrivez-vous!</h1>
-<label>Prénom:</label><input type = "text" name = "prenom">
- <label>Nom:</label><input type = "text" name = "nom">
- <label>Téléphone:</label><input type = "text" name = "telephone">
-  <label>Email:</label><input type = "text" name = "email">
- <input type = "submit" value = "Ajouter">
+<h1><%=__("Inscrivez-vous!") %></h1>
+<label><%=__("prenom") %>:</label><input type = "text" name = "prenom">
+ <label><%=__("nom") %>:</label><input type = "text" name = "nom">
+ <label><%=__("telephone") %>:</label><input type = "text" name = "telephone">
+  <label><%=__("email") %>:</label><input type = "text" name = "email">
+ <input type = "submit" value =<%=__("ajouter") %>>
 </form>
