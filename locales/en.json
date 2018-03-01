@@ -7,10 +7,9 @@
 	"telephone": "Phone Number",
 	"email": "Email",
 	"_id": "_id",
-	"rechercher":"Research",
-	"membres":"Members",
-	"ajouter":"Add",
-	"Inscrivez-vous!":"Sign-in!",
-	"Créé par":"Created by"
-
+	"rechercher": "Research",
+	"membres": "Members",
+	"ajouter": "Add",
+	"Inscrivez-vous!": "Sign-in!",
+	"Créé par": "Created by"
 }

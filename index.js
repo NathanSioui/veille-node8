@@ -30,10 +30,7 @@ app.set('view engine', 'ejs');
 
 app.get('/:locale(en|fr)',  (req, res) => {
   // on récupère le paramètre de l'url pour enregistrer la langue
-
-  let back = req.get('referer');
-  console.log(req.params.locale);
- 
+  
  if(req.params.locale === "undefined"){
     res.cookie('langueChoisie',"fr");
      res.setLocale("fr")
@@ -42,8 +39,6 @@ app.get('/:locale(en|fr)',  (req, res) => {
      res.setLocale(req.params.locale)
   }
  
-  console.log(back);
-
  res.redirect(req.get('referer'));
 
 })
